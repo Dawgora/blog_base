@@ -1,0 +1,9 @@
+<div class="mb-5 border-bottom border-secondary">
+    <h1 class=""> <%= @post.title %></h1>
+    <h6> <%= @post.inserted_at |> NaiveDateTime.to_string %> </h6>
+</div>
+<%= raw render_md @post.body %>
+
+<br>
+<br>
+<span><%= link "Back", to: Routes.page_path(@conn, :index), class: "" %></span>

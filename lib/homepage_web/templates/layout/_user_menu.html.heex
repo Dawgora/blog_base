@@ -1,0 +1,4 @@
+<%= if @current_user do %>
+  <a href="#"><%= @current_user.email %></a>
+  <%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete %>
+<% end %>

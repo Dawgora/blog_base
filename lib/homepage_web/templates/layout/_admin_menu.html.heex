@@ -1,0 +1,4 @@
+<%= if @current_user do %>
+  <%= link "Images", to: Routes.image_index_path(@conn, :index), method: :get %>
+  <%= link "Posts", to: Routes.post_index_path(@conn, :index), method: :get %>
+<% end %>
