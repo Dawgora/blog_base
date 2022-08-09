@@ -4,6 +4,7 @@ defmodule HomepageWeb.Router do
   import HomepageWeb.UserAuth
 
   pipeline :browser do
+    plug HomepageWeb.Plugs.RedirectPlug
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
