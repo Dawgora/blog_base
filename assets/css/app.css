@@ -292,4 +292,9 @@ body {
 
 code {
   color: black;
+  max-width: 80vw;
+}
+
+p > a {
+  word-wrap: break-word;
 }
