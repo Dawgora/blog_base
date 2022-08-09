@@ -289,3 +289,7 @@ body {
   background-color: #1c1c20;
   text-align: center;
 }
+
+code {
+  color: black;
+}
