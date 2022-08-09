@@ -1,6 +1,6 @@
 <h1 class="center">
   Blog
-  <%= link to: Routes.rss_path(@conn, :index) do %>
+  <%= link to: Routes.rss_url(@conn, :index) do %>
     <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
     </svg>
@@ -10,7 +10,7 @@
    <%= for post <- @posts do %>
      <article>
         <div>
-          <h2><%= link post.title, to: Routes.page_path(@conn, :show, post) %></h2>
+          <h2><%= link post.title, to: Routes.page_url(@conn, :show, post) %></h2>
           <%= if post.context do %>
             <p><%= post.inserted_at |> NaiveDateTime.to_string %> <br> <%= post.context %></p>
           <% end %>

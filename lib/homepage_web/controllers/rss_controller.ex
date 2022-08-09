@@ -16,17 +16,17 @@ defmodule HomepageWeb.RssController do
   end
 
   def build_feed(posts, conn) do
-    Feed.new(Routes.page_path(conn, :index), DateTime.utc_now, "dawgora.com RSS feed")
+    Feed.new(Routes.page_url(conn, :index), DateTime.utc_now, "dawgora.com RSS feed")
     |> Feed.author(@author)
-    |> Feed.link(Routes.rss_path(conn, :index), rel: "self")
+    |> Feed.link(Routes.rss_url(conn, :index), rel: "self")
     |> Feed.entries(Enum.map(posts, &get_entry(conn, &1)))
     |> Feed.build()
     |> Atomex.generate_document()
   end
 
   defp get_entry(conn, %{title: title, body: body, inserted_at: inserted_at} = post) do
-    Entry.new(Routes.page_path(conn, :show, post), DateTime.from_naive!(inserted_at, "Etc/UTC"), title)
-    |> Entry.link(Routes.page_path(conn, :show, post))
+    Entry.new(Routes.page_url(conn, :show, post), DateTime.from_naive!(inserted_at, "Etc/UTC"), title)
+    |> Entry.link(Routes.page_url(conn, :show, post))
     |> Entry.author(@author)
     |> Entry.content(render_md(body), type: "text")
     |> Entry.build()

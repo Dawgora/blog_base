@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="csrf-token" content={csrf_token_value()}>
-    <link rel="apple-touch-icon" sizes="180x180" href={Routes.static_path(@conn, "/images/apple-touch-icon.png")}>
-    <link rel="icon" type="image/png" sizes="32x32" href={Routes.static_path(@conn, "/images/favicon-32x32.png")}>
-    <link rel="icon" type="image/png" sizes="16x16" href={Routes.static_path(@conn, "/images/favicon-16x16.png")}>
-    <link rel="manifest" href={Routes.static_path(@conn, "/images/site.webmanifest")}>
-    <link rel="alternate" type="application/rss+xml" href={Routes.rss_path(@conn, :index)}>
+    <link rel="apple-touch-icon" sizes="180x180" href={Routes.static_url(@conn, "/images/apple-touch-icon.png")}>
+    <link rel="icon" type="image/png" sizes="32x32" href={Routes.static_url(@conn, "/images/favicon-32x32.png")}>
+    <link rel="icon" type="image/png" sizes="16x16" href={Routes.static_url(@conn, "/images/favicon-16x16.png")}>
+    <link rel="manifest" href={Routes.static_url(@conn, "/images/site.webmanifest")}>
+    <link rel="alternate" type="application/rss+xml" href={Routes.rss_url(@conn, :index)}>
     <%= live_title_tag assigns[:page_title] || "Blog" %>
-    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
-    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+    <link phx-track-static rel="stylesheet" href={Routes.static_url(@conn, "/assets/app.css")}/>
+    <script defer phx-track-static type="text/javascript" src={Routes.static_url(@conn, "/assets/app.js")}></script>
   </head>
   <body>
     <div class="nav">
@@ -34,8 +34,8 @@
         <a href="https://github.com/Dawgora/" target="_blank">Github</a>
         <a href="https://www.linkedin.com/in/austris-b-78a75b92" target="_blank">LinkedIn</a>
         <a href="https://twitter.com/Dawgora" target="_blank">Twitter</a>
-        <%= link "Blog", to: Routes.page_path(@conn, :index), method: :get %>
-        <%= link "About", to: Routes.page_path(@conn, :about), method: :get %>
+        <%= link "Blog", to: Routes.page_url(@conn, :index), method: :get %>
+        <%= link "About", to: Routes.page_url(@conn, :about), method: :get %>
         <% end %>
         <%= render "_admin_menu.html", assigns %>
         <%= render "_user_menu.html", assigns %>
