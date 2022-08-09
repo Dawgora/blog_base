@@ -1,6 +1,6 @@
 ARG MIX_ENV="prod"
 
-FROM hexpm/elixir:1.13.4-erlang-24.3-alpine-3.15.0 as build
+FROM hexpm/elixir:1.13.4-erlang-25.0.3-alpine-3.16.0 as build
 
 # install build dependencies
 RUN apk update && apk upgrade
@@ -50,7 +50,7 @@ COPY config/runtime.exs config/
 COPY rel rel
 RUN mix release
 
-FROM alpine:3.15.0 AS app
+FROM alpine:3.16.0 AS app
 RUN apk add build-base git curl gcc libstdc++6 bash git openssh
 
 ENV LANG en_US.UTF-8
