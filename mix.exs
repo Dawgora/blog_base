@@ -56,6 +56,7 @@ defmodule Homepage.MixProject do
       {:sweet_xml, "~> 0.6"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:earmark, "~> 1.4"},
+      {:atomex, "0.4.1"},
     ]
   end
 

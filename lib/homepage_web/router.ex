@@ -23,6 +23,7 @@ defmodule HomepageWeb.Router do
     get "/", PageController, :index
     get "/blog/:id", PageController, :show
     get "/about", PageController, :about
+    get "/feed/rss.xml", RssController, :index
   end
 
   # Other scopes may use custom stacks.

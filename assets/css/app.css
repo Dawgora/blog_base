@@ -298,3 +298,7 @@ code {
 p > a {
   word-wrap: break-word;
 }
+
+.rss-icon {
+  height: 4vh;
+}
